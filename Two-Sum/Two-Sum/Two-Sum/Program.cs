@@ -105,7 +105,10 @@ namespace Two_Sum
                 }
                 else
                 {
-                    map.Add(array[i],i);
+                    //map.add(array[i],i)  since it causes error when duplicate take example[1,1,4,7]
+                    map[array[i]] = i; //this method is like just placing the book on the shelf yourself:
+                    //"Oh there's already a book there? I'll just replace it." ✅
+
                 }
             }
         }
@@ -113,11 +116,11 @@ namespace Two_Sum
         static void Main(string[] args)
         {
             int[] nums = { 2, 7, 11, 15 };
-            TwoSum(nums, 9); //O(n^2)
+            TwoSum(nums, 9); //O(n^2) sc-O(1)
 
-            TwoSumS2(nums, 9);//O(nlogn)
+            TwoSumS2(nums, 9);//O(nlogn) sc-O(1)
 
-            TwoSumHashMap(nums, 9);
+            TwoSumHashMap(nums, 9);//tc-O(n) sc-O(n)
 
            
 
