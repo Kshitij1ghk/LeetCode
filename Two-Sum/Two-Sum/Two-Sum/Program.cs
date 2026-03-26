@@ -91,13 +91,33 @@ namespace Two_Sum
             }
 
         }
+
+        static void TwoSumHashMap(int[] array,int target)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+
+            for(int i = 0; i < array.Length; i++)
+            {
+                int compliment = target - array[i];
+                if( map.ContainsKey(compliment))
+                {
+                    Console.WriteLine($"the indices are {i} and {map[compliment]}");
+                }
+                else
+                {
+                    map.Add(array[i],i);
+                }
+            }
+        }
         //the above method is for quicksort for sortiung the elements
         static void Main(string[] args)
         {
             int[] nums = { 2, 7, 11, 15 };
             TwoSum(nums, 9); //O(n^2)
 
-            TwoSumS2(nums, 9);
+            TwoSumS2(nums, 9);//O(nlogn)
+
+            TwoSumHashMap(nums, 9);
 
            
 
